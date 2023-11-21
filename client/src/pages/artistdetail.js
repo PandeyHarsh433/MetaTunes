@@ -28,7 +28,7 @@ const Artistdetail = () => {
   const [array , setarray]=useState([]);
     const [artist,setartist]=useState({});
     const [show,setshow]=useState(false);
-    const URL= "https://meta-tunes.onrender.com";
+    const URL= "http://localhost:8000";
     useEffect(()=>{
       document.body.style.overflowY="scroll"
     },[])
@@ -128,11 +128,11 @@ useEffect(()=>{
         <div className="others">
           <div className="headery">
             <div className="imagee">
-              <img src={artist.artist.imageURL} alt="hey" />
+              <img src={artist.artist?.imageURL} alt="hey" />
             </div>
             <div className="info">
-              <h1>{artist.artist.name}</h1>
-              <p>{artist.artist.note}</p>
+              <h1>{artist.artist?.name}</h1>
+              <p>{artist.artist?.note}</p>
             </div>
           </div>
           <div className="lineyy"></div>
@@ -143,8 +143,8 @@ useEffect(()=>{
                   <PlayArrowIcon/>
                 <h1  onClick={(e)=>{
                   e.preventDefault();
-                  if(artist.songs.length!==0){
-                  playsong(artist.songs[0]);
+                  if(artist?.songs.length!==0){
+                  playsong(artist?.songs[0]);
                   }
                 }} > Play All</h1>
                 </div>
